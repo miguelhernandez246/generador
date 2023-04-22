@@ -63,7 +63,9 @@ public class Invitacion {
         ArrayList<String> nombres = new ArrayList<>();
         
         while (input.hasNextLine()){
+        	
             String line = input.nextLine();
+            
             nombres.add(line);
         }
         
@@ -168,7 +170,6 @@ public class Invitacion {
          * Bandera para empezar a justificar
          */
         boolean antesDElNombre = true;
-        
         for(int i = 0; i < texto.size(); i++) {
         	/**
         	 * Se calcula la longitud del renglon tomando en cuenta el tipo de fuente
@@ -212,6 +213,7 @@ public class Invitacion {
         	 * si no se ingresa el renglon original
         	 */
         	if(texto.get(i).texto.contains("[NOMBRE]")) {
+        		contentStream.setFont(PDType1Font.HELVETICA, texto.get(i).size);
         		contentStream.showText(nombre);
         		antesDElNombre = false;
         	}else {
